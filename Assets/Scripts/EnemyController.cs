@@ -8,7 +8,11 @@ public class EnemyController : MonoBehaviour
     public float health;
     // Animation die bei Zerstörung gespielt wird
     public GameObject destructionAnim;
+    // Wie viele Gegner sind gerade im Spiel
     static int enemiesAlive = 0;
+    // Um wie viel erhöht sich der Score bei Kill
+    public int scoreOnKill = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +40,12 @@ public class EnemyController : MonoBehaviour
                 GameObject ded = Instantiate(destructionAnim, transform.position, Quaternion.identity);
                 enemiesAlive--;
 
+                // Erhöhe den Score um 100
+                GameManager.singleton.SetScore(GameManager.singleton.GetScore() + scoreOnKill);
+
                 // Zerstört das Gegner Objekt
                 Destroy(gameObject);
-                
+                               
                 // Zerstört die Explosionsanimation nach 5 sekunden
                 Destroy(ded, 5);
                 int index = gameObject.GetComponent<EnemyMovementController>().GetThisWayPointIndex();

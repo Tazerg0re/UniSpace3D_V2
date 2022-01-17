@@ -13,12 +13,15 @@ public class CameraPos : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Kameraposition ist die Spielerposition plus das angegebene Offset
-        Vector3 camDestination = target.transform.position + offset;
-        // Kamera bewegt sich mit etwas Verzögerung mit dem Raumschiff
-        float distance = Vector3.Distance(camDestination, transform.position);
-        Vector3 smoothedPos = Vector3.Lerp(transform.position, camDestination, smoothSpeed * distance / 1000);
-        transform.position = smoothedPos;
+        if(target != null)
+        {
+            // Kameraposition ist die Spielerposition plus das angegebene Offset
+            Vector3 camDestination = target.transform.position + offset;
+            // Kamera bewegt sich mit etwas Verzögerung mit dem Raumschiff
+            float distance = Vector3.Distance(camDestination, transform.position);
+            Vector3 smoothedPos = Vector3.Lerp(transform.position, camDestination, smoothSpeed * distance / 1000);
+            transform.position = smoothedPos;
+        }
     }
 
 

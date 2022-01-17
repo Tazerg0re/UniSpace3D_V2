@@ -27,6 +27,8 @@ public class EnemyShoot : MonoBehaviour
 
     void Shoot()
     {
+        if(target != null)
+        {
             int rng = Random.Range(0, 2);
             // Erschaffe ein zugewiesenes GameObject and der Waffenposition
             GameObject g = Instantiate(bullet, weaponPos[rng].transform.position, Quaternion.identity);
@@ -36,5 +38,7 @@ public class EnemyShoot : MonoBehaviour
             // Gibt dem Geschoss eine Kraft mit dem es in Richtung des Punktes fliegt
             g.GetComponent<Rigidbody>().AddForce(g.transform.forward * speed);
             weaponPos[rng].SetActive(false);
+        }
+
     }
 }
