@@ -875,6 +875,7 @@ GameObject:
   - component: {fileID: 8094329354970356619}
   - component: {fileID: 1487226775135401547}
   - component: {fileID: -6368110344214274821}
+  - component: {fileID: -4520132777717931103}
   m_Layer: 2
   m_Name: Enemy
   m_TagString: Enemy
@@ -933,8 +934,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11a30198e0b5b845b86b423fd0ba44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 50
   destructionAnim: {fileID: 463509902106706824, guid: cd1165376305787459d3a80183d2e493, type: 3}
+  scoreOnKill: 500
+  pickUp:
+  - {fileID: 7355713013926475229, guid: 82a76256a42024049964a0c8b9bb380f, type: 3}
+  - {fileID: 2640350296435060913, guid: c5d15fbd0b8266c448a01b22a08b5598, type: 3}
+  healthDropChance: 20
+  coinDropChance: 50
 --- !u!54 &1487226775135401547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -970,6 +977,19 @@ MonoBehaviour:
   speed: 2000
   maxTime: 5
   minTime: 1
+--- !u!135 &-4520132777717931103
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8229983227446338337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8230222193396316425
 GameObject:
   m_ObjectHideFlags: 0

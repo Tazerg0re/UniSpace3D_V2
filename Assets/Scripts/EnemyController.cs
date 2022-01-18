@@ -11,13 +11,16 @@ public class EnemyController : MonoBehaviour
     // Wie viele Gegner sind gerade im Spiel
     static int enemiesAlive = 0;
     // Um wie viel erhöht sich der Score bei Kill
-    public int scoreOnKill = 100;
+    public int scoreOnKill = 500;
+    public GameObject[] pickUp;
+    [Range(0, 100)]
+    public int healthDropChance = 25;
+    [Range(0, 100)]
+    public int coinDropChance = 75;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Leben auf 100 gesetzt
-        health = 100f;
         enemiesAlive++;
         Debug.Log(enemiesAlive);
     }
@@ -38,7 +41,11 @@ public class EnemyController : MonoBehaviour
             {
                 // Animation für Explosion wird erschaffen
                 GameObject ded = Instantiate(destructionAnim, transform.position, Quaternion.identity);
+
+                // Anzahl der Gegner im Spiel wird um 1 reduziert
                 enemiesAlive--;
+
+                DropPickUp();
 
                 // Erhöhe den Score um 100
                 GameManager.singleton.SetScore(GameManager.singleton.GetScore() + scoreOnKill);
@@ -52,6 +59,25 @@ public class EnemyController : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<SpawnController>().SetIsTaken(index, false);
             }
         }
+    }
+
+    void DropPickUp()
+    {
+        int rndHealth = Random.Range(1, 100);
+        if(rndHealth <= healthDropChance)
+        {
+            Instantiate(pickUp[0], transform.position, Quaternion.identity);
+            return;
+        }
+
+        int rndCoin = Random.Range(1, 100);
+        if (rndCoin <= coinDropChance)
+        {
+            GameObject coin = Instantiate(pickUp[1], transform.position, transform.rotation);
+            coin.transform.Rotate(new Vector3(90, 0, 0));
+            return;
+        }
+
     }
 
     public int GetEnemiesAlive()

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Slider healthSlider;
     public GameObject destructionAnim;
     public float currentHealth = 100f;
     public float maxHealth = 100f;
-    //PlayerController_Script Player;
 
 
     private void Awake()
@@ -27,6 +26,25 @@ public class PlayerHealth : MonoBehaviour
     // Wenn eine Kollision erkannt wird
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.transform.tag == "HealthPack")
+        {
+            if (currentHealth + collision.gameObject.GetComponent<PickUp>().healthValue < maxHealth)
+            {
+                currentHealth += collision.gameObject.GetComponent<PickUp>().healthValue;
+            } else
+            {
+                currentHealth = 100;
+            }
+            
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.tag == "Coin")
+        {
+            GameManager.singleton.SetScore(GameManager.singleton.GetScore() + collision.gameObject.GetComponent<PickUp>().coinValue);
+            Destroy(collision.gameObject);
+        }
+
         // Wenn die Kollision mit einen GameObject mit dem Tag "Bullet" erfolgt
         if (collision.transform.tag == "Bullet")
         {
@@ -34,26 +52,30 @@ public class PlayerHealth : MonoBehaviour
             float dmg = collision.gameObject.GetComponent<BulletController>().damage;
 
             // Schaden wird von den derzeitigen Leben abgezogen
-            currentHealth -= dmg;            
+            currentHealth -= dmg;
+
+            // 50 Punkte Abzug, wenn man getroffen wird
+            GameManager.singleton.SetScore(GameManager.singleton.GetScore() - 50);
 
             // Wenn 0 oder weniger Leben
             if (currentHealth <= 0)
             {
+                healthSlider.value = currentHealth;
+
                 // Animation für Explosion wird erschaffen
                 GameObject ded = Instantiate(destructionAnim, transform.position, Quaternion.identity);
 
-                // Death() Methode Entfernt Schiff und pausiert das Spiel
-                Invoke("Death", 1);
-
                 // Zerstört die Explosionsanimation nach 2 sekunden
-                Destroy(ded, 0.99f);              
+                Destroy(ded, 2);
+
+                //Stoppt die Zeit und geht in GameOver Screen
+                GameManager.singleton.OnDeath();
+
+                // Enferne Spieler Raumschiff
+                Destroy(gameObject);
+
+          
             }
         }
-    }
-
-    public void Death()
-    {
-        Time.timeScale = 0f;
-        Destroy(gameObject);
     }
 }

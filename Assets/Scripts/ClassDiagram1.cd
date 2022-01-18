@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SpawnController">
+    <Position X="16.5" Y="9.75" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true">
+      <Path>
+        <Point X="15.5" Y="4.358" />
+        <Point X="15.5" Y="9.371" />
+        <Point X="17.25" Y="9.371" />
+        <Point X="17.25" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAABAAAQAgEAAAECAAAAAAAAAIAQAAA=</HashCode>
+      <FileName>Assets\Scripts\SpawnController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BulletController">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
+      <Path>
+        <Point X="15.5" Y="4.358" />
+        <Point X="15.5" Y="4.733" />
+        <Point X="18.75" Y="4.733" />
+        <Point X="18.75" Y="6.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAACAAggAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BulletController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraPos">
+    <Position X="14" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CameraPos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyController">
+    <Position X="19.5" Y="9.5" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true">
+      <Path>
+        <Point X="15.5" Y="4.358" />
+        <Point X="15.5" Y="9.8" />
+        <Point X="16.2" Y="9.8" />
+        <Point X="16.2" Y="9.371" />
+        <Point X="20.25" Y="9.371" />
+        <Point X="20.25" Y="9.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>IAAAAAEAACAAAAAAEAAAAAAAAAUBAAAIAAAAAAQABAg=</HashCode>
+      <FileName>Assets\Scripts\EnemyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyMovementController">
+    <Position X="21.25" Y="8.5" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
+      <Path>
+        <Point X="15.5" Y="4.358" />
+        <Point X="15.5" Y="4.733" />
+        <Point X="22" Y="4.733" />
+        <Point X="22" Y="8.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAQAAgAAACAgEAAAIAAAAAAAAEEAAQAAIQBIAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\EnemyMovementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyShoot">
+    <Position X="23" Y="9.75" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedToPoint="true">
+      <Path>
+        <Point X="15.5" Y="4.358" />
+        <Point X="15.5" Y="4.733" />
+        <Point X="23.75" Y="4.733" />
+        <Point X="23.75" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAACAABAAAIAAAAAAAAAAAQQAAQBAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EnemyShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="25.5" Y="5.25" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
+      <Path>
+        <Point X="15.5" Y="0.75" />
+        <Point X="15.5" Y="0.375" />
+        <Point X="26.25" Y="0.375" />
+        <Point X="26.25" Y="5.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>EAQgiABAQHhIEAgAgAE4QIAAEQAEFAAAAEkBgpBAIGA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PickUp">
+    <Position X="16.25" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
+      <Path>
+        <Point X="15.5" Y="4.358" />
+        <Point X="15.5" Y="5.875" />
+        <Point X="17" Y="5.875" />
+        <Point X="17" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAgAAAAQBAAIAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\PickUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController">
+    <Position X="8.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIAAAAAAAAEAAAAAAAAAAEAAAIAAAAAIAAAEA=</HashCode>
+      <FileName>Assets\Scripts\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMovement">
+    <Position X="10.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiAgAAAEAAAAAAAAAAAAAQAAQBAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerShoot">
+    <Position X="12.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAgAABAAAAAAAAAACAAAAQQAAABAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerShoot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour">
+    <Position X="14.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="UnityEngine.Behaviour">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -715,7 +715,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6927384585925189273}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -811,7 +811,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6927384585925189275}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -907,7 +907,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6927384585925189277}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 6927384585924887231}
   - component: {fileID: 6927384583915728504}
   - component: {fileID: 6927384583915728505}
-  - component: {fileID: 1166241806}
+  - component: {fileID: 7749668818002467434}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -979,8 +979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db08a81099c2077469d66e19d5bce523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
---- !u!114 &1166241806
+  speed: 10
+--- !u!114 &7749668818002467434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -989,10 +989,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6927384585925189279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef75994301b3c47b0985ff4527b59aa2, type: 3}
+  m_Script: {fileID: 11500000, guid: d6338964ee702cf4b8086c237df82b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthBar: {fileID: 0}
+  healthSlider: {fileID: 0}
   destructionAnim: {fileID: 463509902106706824, guid: cd1165376305787459d3a80183d2e493, type: 3}
   currentHealth: 100
   maxHealth: 100

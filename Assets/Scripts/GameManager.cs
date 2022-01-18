@@ -11,19 +11,28 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject werSpielt;
     public GameObject gameUi;
+    public GameObject gameOverScreen;
     public InputField selectName;
     public Text namePlaceholder;
+    public Text gameOverName;
+    public Text gameOverScore;
+    public Text[] highScoreNames;
+    public Text[] highScoreValues;
     public static GameManager singleton;
     public Text CurrentScore;
     public Text PlayTime;
-    public int score;
+    private int score = 0;
+    public int debugScore = 10000;
+    public int timeScore;
     public float scoreInterval = 10f;
-    public bool isPaused;
+    private bool isPaused;
+    private string playerName;
+    private bool hasStarted;
 
+    
 
     private void Awake()
-    {
-        score = 0;
+    {        
         Time.timeScale = 0f;
         if (singleton == null)
         {
@@ -33,6 +42,75 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
             DontDestroyOnLoad(gameObject);
+        }
+
+    }
+
+    private void Start()
+    {
+        hasStarted = false;
+        for(int i = 1; i <= 5; i++)
+        {
+            Debug.Log(PlayerPrefs.GetString("highScoreName_" + i));
+            Debug.Log(PlayerPrefs.GetInt("highScoreValue_" + i).ToString());            
+        }
+
+        if (PlayerPrefs.GetString("highScoreName_1") == "")
+        {
+            ResetHighScores();
+        }
+        SetHighscores();
+    }
+
+    private void SetHighscores()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            if(GetScore() > PlayerPrefs.GetInt("highScoreValue_" + i))
+            {
+                for (int x = 5; x > i; x--)
+                {
+                    int value = PlayerPrefs.GetInt("highScoreValue_" + (x - 1));
+                    string name = PlayerPrefs.GetString("highScoreName_" + (x - 1));
+                    PlayerPrefs.SetInt("highScoreValue_" + x, value);
+                    PlayerPrefs.SetString("highScoreName_" + x, name);
+                    Debug.Log("Test" + x);
+                }
+
+                PlayerPrefs.SetInt("highScoreValue_" + i, GetScore());
+                PlayerPrefs.SetString("highScoreName_" + i, playerName);
+                break;
+            }            
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            highScoreValues[i - 1].text = PlayerPrefs.GetInt("highScoreValue_" + i).ToString();
+            highScoreNames[i - 1].text = PlayerPrefs.GetString("highScoreName_" + i);
+        }
+    }
+
+    public void ResetHighScores()
+    {
+        PlayerPrefs.SetString("highScoreName_1", "Sarah");
+        PlayerPrefs.SetInt("highScoreValue_1", 10000);
+
+        PlayerPrefs.SetString("highScoreName_2", "Paul");
+        PlayerPrefs.SetInt("highScoreValue_2", 9000);
+
+        PlayerPrefs.SetString("highScoreName_3", "Andreas");
+        PlayerPrefs.SetInt("highScoreValue_3", 8000);
+
+        PlayerPrefs.SetString("highScoreName_4", "Chris");
+        PlayerPrefs.SetInt("highScoreValue_4", 7000);
+
+        PlayerPrefs.SetString("highScoreName_5", "Eva");
+        PlayerPrefs.SetInt("highScoreValue_5", 6000);
+
+        for (int i = 1; i <= 5; i++)
+        {
+            highScoreValues[i - 1].text = PlayerPrefs.GetInt("highScoreValue_" + i).ToString();
+            highScoreNames[i - 1].text = PlayerPrefs.GetString("highScoreName_" + i);
         }
     }
 
@@ -50,15 +128,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            playerName = selectName.text;
             backgroundImage.SetActive(false);
             mainMenu.SetActive(false);
             werSpielt.SetActive(false);
             gameUi.SetActive(true);
-
             Time.timeScale = 1f;
             isPaused = false;
-            InvokeRepeating("ScoreUpWithTime", 10, 10);
-
+            score += debugScore;
+            InvokeRepeating("ScoreUpWithTime", scoreInterval, scoreInterval);
+            hasStarted = true;
         }
             
        
@@ -74,12 +153,12 @@ public class GameManager : MonoBehaviour
 
     public void ScoreUpWithTime()
     {
-        SetScore(GetScore() + 50);
+        SetScore(GetScore() + timeScore);
     }
 
     public void OnEscapePauseOrResume()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && isPaused == false && mainMenu.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && hasStarted == true && isPaused == false)
         {
             Pause();
         }
@@ -134,5 +213,28 @@ public class GameManager : MonoBehaviour
     public void ShowScore()
     {
         CurrentScore.text = "Score: " + score; 
+    }
+
+    public void OnDeath()
+    {
+        Invoke("GameOver", 2);        
+    }
+
+    public void GameOver()
+    {
+        gameUi.SetActive(false);
+        gameOverScreen.SetActive(true);
+        Time.timeScale = 0f;
+
+        gameOverName.text = playerName;
+        gameOverScore.text = GetScore().ToString();
+
+        SetHighscores();
+        hasStarted = false;
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

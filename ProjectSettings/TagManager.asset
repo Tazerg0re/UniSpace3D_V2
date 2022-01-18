@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - WayPoint
   - Bullet
+  - HealthPack
+  - Coin
   layers:
   - Default
   - TransparentFX
