@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - HealthPack
   - Coin
+  - Asteroid
+  - Audio
   layers:
   - Default
   - TransparentFX

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9203302135f8eec468f102312df00454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpSound: {fileID: 8300000, guid: b6b818c3af49d9849b3c726bdd27ab8d, type: 3}
   speed: 0.05
   rotSpeed: 100
   healthValue: 25

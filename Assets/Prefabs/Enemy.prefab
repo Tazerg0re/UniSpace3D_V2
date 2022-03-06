@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfeb2b96549afd469a9c73d53dd6cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.3
   rotationSpeed: 3
 --- !u!114 &8094329354970356619
 MonoBehaviour:
@@ -940,7 +940,7 @@ MonoBehaviour:
   pickUp:
   - {fileID: 7355713013926475229, guid: 82a76256a42024049964a0c8b9bb380f, type: 3}
   - {fileID: 2640350296435060913, guid: c5d15fbd0b8266c448a01b22a08b5598, type: 3}
-  healthDropChance: 20
+  healthDropChance: 15
   coinDropChance: 50
 --- !u!54 &1487226775135401547
 Rigidbody:
@@ -975,8 +975,8 @@ MonoBehaviour:
   - {fileID: 101728823148361390}
   - {fileID: 3010659882067721586}
   speed: 2000
-  maxTime: 5
-  minTime: 1
+  maxTime: 10
+  minTime: 3
 --- !u!135 &-4520132777717931103
 SphereCollider:
   m_ObjectHideFlags: 0

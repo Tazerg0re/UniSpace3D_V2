@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &75258557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 75258558}
+  - component: {fileID: 75258559}
+  m_Layer: 2
+  m_Name: AsteroidSpawns
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &75258558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75258557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1000}
+  m_LocalScale: {x: 4.563, y: 4.563, z: 4.563}
+  m_Children: []
+  m_Father: {fileID: 6927384585924887231}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &75258559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75258557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455778d728c38ca4ebfd71d60df8936b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroid: {fileID: 1808277312487413623, guid: 3c283dd888d75a64983c0a71a9ea02ae, type: 3}
+  minSpawnTime: 5
+  maxSpawnTime: 10
+  offsetX: 80
+  offsetY: 60
 --- !u!1 &594238097
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +996,7 @@ Transform:
   - {fileID: 1156586149}
   - {fileID: 1817958413}
   - {fileID: 2597078787073967539}
+  - {fileID: 75258558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -996,6 +1045,7 @@ MonoBehaviour:
   destructionAnim: {fileID: 463509902106706824, guid: cd1165376305787459d3a80183d2e493, type: 3}
   currentHealth: 100
   maxHealth: 100
+  invuln: 1
 --- !u!1 &7129258278432741064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,13 +1279,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
---- !u!4 &2449888201934209108 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400006, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
-  m_PrefabInstance: {fileID: 2449888201934084818}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2449888201933986932 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100006, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
+  m_PrefabInstance: {fileID: 2449888201934084818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2449888201934209108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: 7e9c50938e32351438a7df9ccad2f2a5, type: 3}
   m_PrefabInstance: {fileID: 2449888201934084818}
   m_PrefabAsset: {fileID: 0}
