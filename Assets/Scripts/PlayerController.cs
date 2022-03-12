@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
             // Schaden wird von den derzeitigen Leben abgezogen
             currentHealth -= dmg;
 
-            // 50 Punkte Abzug, wenn man getroffen wird
+            // 100 Punkte Abzug, wenn man getroffen wird
             GameManager.singleton.SetScore(GameManager.singleton.GetScore() - 100);
 
             // rufe CheckDeath() Methode auf
